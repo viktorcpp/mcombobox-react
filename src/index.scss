@@ -1,21 +1,34 @@
 
-@import "./_reset.scss";
-@import "./_mcombobox.scss";
+@import "./_reset";
+@import "./_mcombobox";
 
 body {
     display: flex;
+    align-items: center;
     align-content: center;
     justify-content: center;
-    align-items: center;
+    justify-items: center;
     height: 100vh;
+    font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
+    font-size: 16px;
 }
 
-select {
-    min-width: 200px;
-    border: 1px solid #b3d4fc;
-    margin-right: 20px;
+.main {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    flex-flow: row;
+}
+
+select, option {
+    padding: 0;
+    margin: 0;
+    line-height: 120%;
+    font: inherit;
 }
 
 .select-fake {
-    min-width: 200px;
+    margin: 0 0 0 30px;
 }

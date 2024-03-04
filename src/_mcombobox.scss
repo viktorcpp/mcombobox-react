@@ -1,114 +1,65 @@
 
-/*@import "sprite.scss";*/
+.select-fake {
+    border: 1px solid #000;
+    padding: 3px 24px 2px 6px;
+    cursor: default;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: stretch;
+    justify-content: stretch;
+    position: relative;
+    overflow: visible;
 
-.select-fake
-{
-    border:        1px solid #000;
-    cursor:        default;
-    position:      relative;
-    display:       inline-block;
-    border-radius: 3px;
-    position:      relative;
-
-    .select-label
-    {
-        white-space:   nowrap;
-        overflow:      hidden;
-        text-overflow: ellipsis;
-        padding:       0 10px;
-        line-height:   19px;
-
-    }
-
-    .select-button
-    {
-        position:        absolute;
-        width:           20px;
-        height:          100%;
-        left:            auto;
-        top:             0;
-        right:           0;
-        bottom:          0;
-        z-index:         2;
-        display:         flex;
-        align-items:     center;
-        justify-content: center;
-
-        &:before
-        {
-            /*@include sprite($ico-combo-closed);*/
-
-            background: url("./sprites-png/ico-combo-closed.png");
-            content:          '';
-            display:          block;
-            width:            13px;
-            height:           9px;
-            transform-origin: 50% 50%;
-            transition:       0.3s transform ease-in-out;
-
-        }
-
-    }
-
-    &.opened
-    {
-        .select-button
-        {
-            &:before
-            {
-                transform: rotate(-180deg);
-            }
-        }
-
-        .select-fake-menu
-        {
-            max-height: min-content;
-        }
+    &:after {
+        display: block;
+        content: "";
+        width: 13px;
+        height: 9px;
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        margin: -5px 0 0 0;
+        right: 3px;
+        background: url("./sprites-png/ico-combo-closed.png");
     }
 }
 
-.select-fake-menu-holder
-{
-    position:    absolute;
-    left:        0;
-    right: 0;
-    top:         100%;
-    width:       100%;
-    overflow:    hidden;
+.select-fake-value {
 
-    &.open-up, .opened &
-    {
-        overflow: visible;
+}
 
-        .select-fake-menu
-        {
-            max-height: min-content;
-        }
+.select-fake-menu {
+    position: absolute;
+    left: -1px;
+    top: 100%;
+    right: auto;
+    bottom: auto;
+    border: none;
+    min-width: 100%;
+    overflow: hidden;
+    //max-height: 0px;
+    border: 1px solid #000;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.2s ease-in-out;
+
+    .opened & {
+        border: 1px solid #000;
+        transform: scaleY(1);
     }
 }
 
-.select-fake-menu
-{
-    border:     1px solid #000;
-    position:   absolute;
-    z-index:    1;
-    left:       -1px;
-    top:        0;
-    bottom:     auto;
-    overflow-x: hidden;
-    overflow-y: auto;
-    max-height: 0;
-    transition: 0.3s max-height ease-in-out;width:   100%;
+.select-fake-item {
+    padding: 3px 6px 2px 6px;
 
-    .select-fake-menu-item
-    {
-        padding: 2px 10px;
-        cursor:  default;
-        width:   100%;
+    &:hover {
+        background-color: lightgray;
+    }
 
-        &:hover, &.selected
-        {
-            background-color: gainsboro;
-        }
+    &.selected {
+        background-color: lightgray;
     }
 }

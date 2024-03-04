@@ -337,105 +337,91 @@ textarea {
   padding: 0.2em 0;
 }
 
-/*@import "sprite.scss";*/
 .select-fake {
   border: 1px solid #000;
+  padding: 3px 24px 2px 6px;
   cursor: default;
   position: relative;
-  display: inline-block;
-  border-radius: 3px;
-  position: relative;
-}
-.select-fake .select-label {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 0 10px;
-  line-height: 19px;
-}
-.select-fake .select-button {
-  position: absolute;
-  width: 20px;
-  height: 100%;
-  left: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
+  box-sizing: border-box;
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.select-fake .select-button:before {
-  /*@include sprite($ico-combo-closed);*/
-  background: url("./sprites-png/ico-combo-closed.png");
-  content: "";
-  display: block;
-  width: 13px;
-  height: 9px;
-  transform-origin: 50% 50%;
-  transition: 0.3s transform ease-in-out;
-}
-.select-fake.opened .select-button:before {
-  transform: rotate(-180deg);
-}
-.select-fake.opened .select-fake-menu {
-  max-height: min-content;
-}
-
-.select-fake-menu-holder {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-.select-fake-menu-holder.open-up, .opened .select-fake-menu-holder {
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: stretch;
+  justify-content: stretch;
+  position: relative;
   overflow: visible;
 }
-.select-fake-menu-holder.open-up .select-fake-menu, .opened .select-fake-menu-holder .select-fake-menu {
-  max-height: min-content;
+.select-fake:after {
+  display: block;
+  content: "";
+  width: 13px;
+  height: 9px;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  margin: -5px 0 0 0;
+  right: 3px;
+  background: url("./sprites-png/ico-combo-closed.png");
 }
 
 .select-fake-menu {
-  border: 1px solid #000;
   position: absolute;
-  z-index: 1;
   left: -1px;
-  top: 0;
+  top: 100%;
+  right: auto;
   bottom: auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-  max-height: 0;
-  transition: 0.3s max-height ease-in-out;
-  width: 100%;
+  border: none;
+  min-width: 100%;
+  overflow: hidden;
+  border: 1px solid #000;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.2s ease-in-out;
 }
-.select-fake-menu .select-fake-menu-item {
-  padding: 2px 10px;
-  cursor: default;
-  width: 100%;
+.opened .select-fake-menu {
+  border: 1px solid #000;
+  transform: scaleY(1);
 }
-.select-fake-menu .select-fake-menu-item:hover, .select-fake-menu .select-fake-menu-item.selected {
-  background-color: gainsboro;
+
+.select-fake-item {
+  padding: 3px 6px 2px 6px;
+}
+.select-fake-item:hover {
+  background-color: lightgray;
+}
+.select-fake-item.selected {
+  background-color: lightgray;
 }
 
 body {
   display: flex;
+  align-items: center;
   align-content: center;
   justify-content: center;
-  align-items: center;
+  justify-items: center;
   height: 100vh;
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
+  font-size: 16px;
 }
 
-select {
-  min-width: 200px;
-  border: 1px solid #b3d4fc;
-  margin-right: 20px;
+.main {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  flex-flow: row;
+}
+
+select, option {
+  padding: 0;
+  margin: 0;
+  line-height: 120%;
+  font: inherit;
 }
 
 .select-fake {
-  min-width: 200px;
+  margin: 0 0 0 30px;
 }
 
 /*# sourceMappingURL=index.css.map */
